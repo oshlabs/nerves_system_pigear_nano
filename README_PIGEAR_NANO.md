@@ -24,3 +24,10 @@ Incorporate configuration and device-tree overlay as provided by UUGear
 * MCP342X Device tree overlay (mcp342x.dtbo)
 
 Added libgphoto2 package from Buildroot
+
+Added iproute2 package from Buildroot so that type and speed can be set as follows:
+```
+cmd "ip link set can0 type can bitrate 250000"
+cmd "ip link set up can0"
+```
+
