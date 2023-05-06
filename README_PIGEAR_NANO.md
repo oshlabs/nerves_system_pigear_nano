@@ -1,5 +1,7 @@
 This document contains information about the changes that were made for the PiGear Nano
 
+![PiGear Nano image](assets/images/pigear-nano.jpg)
+
 ---
 
 Forked from https://github.com/nerves-project/nerves_system_rpi4
