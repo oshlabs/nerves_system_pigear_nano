@@ -46,7 +46,7 @@ cd test_pgn
 
 Then edit mix.exs and perform the following steps:
 * Add `:pigear_nano` to `@all_targets` list
-* In the defp deps fuction body, add the following:
+* In the `defp deps` fuction body, add the following:
 ```
       {:nerves_system_pigear_nano,
        path: "../nerves_system_pigear_nano",
@@ -76,3 +76,16 @@ mix burn
 ```
 mix upload
 ```
+
+---
+
+External references:
+* https://hexdocs.pm/nerves/advanced-configuration.html#target-specific-configuration
+* https://hexdocs.pm/nerves/targets.html
+* https://hexdocs.pm/nerves/systems.html
+* https://hexdocs.pm/nerves/customizing-systems.html
+* https://www.uugear.com/doc/PiGearNano_UserManual.pdf
+* https://labzero.com/blog/including-a-device-tree-overlay-in-an-elixir-nerves-project
+* https://github.com/nerves-project/nerves/blob/main/docs/Advanced%20Configuration.md
+* https://github.com/raspberrypi/documentation/blob/develop/documentation/asciidoc/computers/configuration/device-tree.adoc
+* http://velep.com/archives/1186.html
