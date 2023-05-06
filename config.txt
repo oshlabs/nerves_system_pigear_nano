@@ -63,3 +63,17 @@ enable_uart=1
 # For the CM4 I/O board, USB is disabled by default. This enables it.
 dtoverlay=dwc2,dr_mode=host
 
+
+# everything below added for pigear nano
+
+dtoverlay=i2c1,pins_2_3
+dtoverlay=i2c6,pins_0_1
+# dtoverlay=pi3-miniuart-bt # don't have bluetooth
+dtoverlay=uart3
+dtoverlay=uart4
+dtoverlay=uart5
+
+dtoverlay=spi1-1cs
+dtoverlay=mcp2515-can2,oscillator=16000000,interrupt=10
+
+dtoverlay=mcp342x,mcp3424

@@ -31,3 +31,45 @@ cmd "ip link set can0 type can bitrate 250000"
 cmd "ip link set up can0"
 ```
 
+---
+
+No binary artifact is uploaded yet for this nerves system, therefore use the following procedure to use it:
+```
+cd src/
+git clone --branch pigear_nano https://github.com/oshlabs/nerves_system_pigear_nano
+mix nerves.new test_pgn
+cd test_pgn
+```
+
+Then edit mix.exs and perform the following steps:
+* Add `:pigear_nano` to `@all_targets` list
+* In the defp deps fuction body, add the following:
+```
+      {:nerves_system_pigear_nano,
+       path: "../nerves_system_pigear_nano",
+       runtime: false,
+       targets: :pigear_nano,
+       nerves: [compile: true]}
+```
+
+Then export the target to be `pigear_nano` as follows:
+```
+export MIX_TARGET=pigear_nano
+```
+
+And build your firmware:
+```
+mix firmware
+```
+
+This will take quite a while the first time, since it'll recompile the whole customized nerves system as well. The second run will go quicker as it can take the binaries from the sibling `../nerves_system_pigear_nano` directory.
+
+Finally burn..
+```
+mix burn
+```
+
+..or upload as usual
+```
+mix upload
+```
