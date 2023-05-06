@@ -5,7 +5,10 @@ This document contains information about the changes that were made for the PiGe
 ---
 
 Forked from https://github.com/nerves-project/nerves_system_rpi4
-Tag 1.22.2 / git rev 8ba745a
+
+Tag v1.22.2 / git rev 8ba745a
+
+[Changes from tag v1.22.2 to branch pigear_nano](https://github.com/oshlabs/nerves_system_pigear_nano/compare/v1.22.2..pigear_nano)
 
 ---
 
