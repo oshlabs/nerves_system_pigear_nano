@@ -74,6 +74,6 @@ dtoverlay=uart4
 dtoverlay=uart5
 
 dtoverlay=spi1-1cs
-dtoverlay=mcp2515-can2,oscillator=16000000,interrupt=10
+### dtoverlay=mcp2515-can2,oscillator=16000000,interrupt=10
 
 dtoverlay=mcp342x,mcp3424
