@@ -24,9 +24,11 @@ disable_splash=1
 # configuration. See Target packages->Hardware handling->Firmware.
 gpu_mem=192
 
-# Enable I2C, SPI, and audio
+# Enable I2C and SPI
 dtparam=i2c_arm=on
 dtparam=spi=on
+
+# Enable audio (loads snd_bcm3825)
 dtparam=audio=on
 
 # Automatically load overlays for detected cameras
@@ -63,17 +65,33 @@ enable_uart=1
 # For the CM4 I/O board, USB is disabled by default. This enables it.
 dtoverlay=dwc2,dr_mode=host
 
-
-# everything below added for pigear nano
-
+# Additional settings for Pigear Nano
 dtoverlay=i2c1,pins_2_3
 dtoverlay=i2c6,pins_0_1
 # dtoverlay=pi3-miniuart-bt # don't have bluetooth
 dtoverlay=uart3
 dtoverlay=uart4
 dtoverlay=uart5
-
 dtoverlay=spi1-1cs
 dtoverlay=mcp2515-can2,oscillator=16000000,interrupt=10
-
 dtoverlay=mcp342x,mcp3424
+
+# NOTE that the settings for Pigear Nano are incompatible with the
+# earlier used PI4B. This is because Pigear Nano uses pin18 for
+# connecting a SPI bus controlling the MCP2515 CAN interface,
+# where on PI4B in V1Rig that same pin was used to do hardware
+# PWM to control the LED panel.
+#
+# In order to still get a single firmware for both hardware versions,
+# this config.txt should be able to to differentiate by board model.
+#
+# Documentation about this can be found here:
+# - https://www.raspberrypi.com/documentation/computers/config_txt.html
+# - https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-revision-codes
+#
+# Especially on 2nd link, see at bottom of page where PI4B uses board code a03111 to d03115
+# I did not test this yet, but when making single firmware for v1rig,
+# update below section:
+
+## [all] # <- instead of all, put proper board type here
+## dtoverlay=pwm,pin=18,func=2
